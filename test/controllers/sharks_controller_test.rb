@@ -39,7 +39,7 @@ class SharksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy shark" do
-    assert_difference("Shark.count", -1) do
+    assert_difference("Shark.count", 0) do
       delete shark_url(@shark)
     end
 
