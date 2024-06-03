@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with name: "admin", password: "123456", except: [:index, :show]
+  http_basic_authenticate_with name: "admin", password: "123456", except => [:index, :show]
 end
