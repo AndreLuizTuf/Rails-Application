@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :sharks
+  resources :sharks do
+    resources :posts
+  end
   root "sharks#index"
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

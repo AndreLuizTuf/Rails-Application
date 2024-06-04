@@ -11,7 +11,11 @@ class SharksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_shark_url
+    # Fornecer credenciais de autenticação
+    credentials = ActionController::HttpAuthentication::Basic.encode_credentials("name", "password")
+
+    get new_shark_url, headers: { "Authorization" => credentials }
+
     assert_response :success
   end
 
@@ -29,20 +33,31 @@ class SharksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_shark_url(@shark)
+    # Fornecer credenciais de autenticação
+    credentials = ActionController::HttpAuthentication::Basic.encode_credentials("name", "password")
+
+    get edit_shark_url(@shark), headers: { "Authorization" => credentials }
+
     assert_response :success
   end
 
+
   test "should update shark" do
-    patch shark_url(@shark), params: { shark: { facts: @shark.facts, name: @shark.name } }
+    # Fornecer credenciais de autenticação
+    credentials = ActionController::HttpAuthentication::Basic.encode_credentials("name", "password")
+
+    patch shark_url(@shark), headers: { "Authorization" => credentials }, params: { shark: { facts: @shark.facts, name: @shark.name } }
+
     assert_redirected_to shark_url(@shark)
   end
 
-  test "should destroy shark" do
-    assert_difference("Shark.count", 0) do
-      delete shark_url(@shark)
-    end
 
+  test "should destroy shark" do
+    credentials = ActionController::HttpAuthentication::Basic.encode_credentials("name", "password")
+
+  assert_difference("Shark.count", -1) do
+    delete shark_url(@shark), headers: { "Authorization" => credentials }
+  end
     assert_redirected_to sharks_url
   end
 end

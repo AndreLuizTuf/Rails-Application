@@ -1,0 +1,12 @@
+<% content_for :title, "Editing post" %>
+
+<h1>Editing post</h1>
+
+<%= render "form", post: @post %>
+
+<br>
+
+<div>
+  <%= link_to "Show", [@shark, @post] %> |
+  <%= link_to "Back", shark_posts_path(@shark) %>
+</div>

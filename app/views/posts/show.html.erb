@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @post %>
+
+<div>
+  <%= link_to "Edit", edit_post_path(@shark, @post) %> |
+  <%= link_to "Back", shark_posts_path(@shark) %>
+
+  <%= button_to "Destroy this post", @post, method: :delete %>
+</div>
