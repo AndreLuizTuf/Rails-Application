@@ -37,7 +37,7 @@ gem "turbolinks", "~> 5"
 gem "webpacker", "~> 5.4", ">= 5.4.4"
 gem "font-awesome-rails", "~>4.x"
 
-gem "psych", "< 4"
+gem "psych", "< 6"
 
 
 gem "dotenv-rails", groups: [ :development, :test ]
